@@ -53,7 +53,7 @@ class BaseGiffyDialog extends StatefulWidget {
 
   final Widget imageWidget;
   final Text title;
-  final Text description;
+  final Widget description;
   final bool onlyOkButton;
   final bool onlyCancelButton;
   final Text buttonOkText;
@@ -128,9 +128,11 @@ class _BaseGiffyDialogState extends State<BaseGiffyDialog>
 
   Widget _buildPortraitWidget(BuildContext context, Widget imageWidget) {
     return Column(
+
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Expanded(
+          flex: 1,
           child: ClipRRect(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(widget.cornerRadius),
@@ -139,6 +141,7 @@ class _BaseGiffyDialogState extends State<BaseGiffyDialog>
           ),
         ),
         Expanded(
+          flex: 3,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -247,8 +250,8 @@ class _BaseGiffyDialogState extends State<BaseGiffyDialog>
                 0,
               )
             : null,
-        height: MediaQuery.of(context).size.height * 0.6,
-        width: MediaQuery.of(context).size.width * (isPortrait ? 0.8 : 0.6),
+        height: MediaQuery.of(context).size.height * 0.8,
+        width: MediaQuery.of(context).size.width * (isPortrait ? 0.9 : 0.6),
         child: Material(
           type: MaterialType.card,
           shape: RoundedRectangleBorder(
